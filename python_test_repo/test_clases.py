@@ -4,6 +4,9 @@
 ### Usuario (nombre, apellido, admin/user, cuentas)
 
 
+
+
+
 class Usuario():
 
     def __init__(self,nombre,apellido,role,cuentas=[ ],baneado=False):
@@ -38,10 +41,21 @@ class Usuario():
         else:
             return False
 
-    
+class UsuarioEspecial(Usuario):
+
+    def __init__(self,nombre,apellido,role,cuentas=[ ],baneado=False):
+        Usuario.__init__(self, nombre, apellido, role, cuentas)
+
+
+    def get_apellido(self):
+        return f"Apellido de la persona especial: {self.apellido}"
+        #Se pueden sobreescribir métodos
 
 if __name__ == "__main__":
     usuario = Usuario('Pedro','Maria','admin')
+    usuario_especial = UsuarioEspecial('Pedro','Maria','admin')
+    print(usuario_especial.get_nombre())
+    print(usuario_especial.get_apellido())
     usuario2 = Usuario('Ibai','Maria','admin')
 
 
